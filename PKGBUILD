@@ -16,7 +16,7 @@ provides=("${_pkgbase}" 'linux_media')
 source=('dkms.conf'
         'modules.list'
         'media_build::git://linuxtv.org/media_build.git')
-sha256sums=('c634c043deccaf3c2ed81c3a208f6c3b358255e7ed348886da7e13c13e9977f7'
+sha256sums=('0fa837177caccf36c419206451f880439e38bb4f8e82a087e1a70f5d05ebda19'
             '195c6a971c915855ab4e39cfd4d7ae14b513fbb7c8daa5b3e5135cc5b50ba81c'
             'SKIP')
 options=('!strip')
