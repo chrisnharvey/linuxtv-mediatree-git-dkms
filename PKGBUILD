@@ -25,9 +25,9 @@ prepare() {
     if [ -d "${srcdir}/media" ]; then
         cd "${srcdir}/media" && \
         git fetch --depth=1 origin && \
-        git reset --hard origin/latest
+        git reset --hard origin/master
     else
-        git clone --depth=1 git://linuxtv.org/media_tree.git -b latest "$srcdir/media"
+        git clone --depth=1 git://linuxtv.org/media_tree.git -b master "$srcdir/media"
     fi
 }
 
