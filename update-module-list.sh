@@ -2,7 +2,7 @@
 
 MODULES_FILE=modules.list
 VERS="$(awk -F= '/pkgver=/{ print $2 }' PKGBUILD)"
-: ${LOG:=/var/lib/dkms/tbs-linux_media-git/$VERS/build/make.log}
+: ${LOG:=/var/lib/dkms/linuxtv-mediatree-git-dkms/$VERS/build/make.log}
 
 old_checksum=$(sha256sum "$MODULES_FILE" | awk '{print $1}')
 
