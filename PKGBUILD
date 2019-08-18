@@ -2,7 +2,7 @@
 # Based on the work in tbs-linux_media-git-dkms
 
 _pkgbase=tbs-linux_media-git-dkms
-pkgname=${_pkgbase}-dkms
+pkgname=linuxtv-mediatree-git-dkms
 pkgver=r20180926.102742.6023ef2c0
 pkgrel=1
 pkgdesc="LinuxTV mediatree modules (DKMS)"
@@ -38,20 +38,20 @@ pkgver() {
 
 package() {
     # Copy dkms.conf
-    install -Dm644 "${srcdir}/dkms.conf" "${pkgdir}/usr/src/${_pkgbase}-${pkgver}/dkms.conf"
+    install -Dm644 "${srcdir}/dkms.conf" "${pkgdir}/usr/src/${pkgname}-${pkgver}/dkms.conf"
 
     # Set name and version
-    sed -e "s/@_PKGBASE@/${_pkgbase}/" \
+    sed -e "s/@_PKGNAME@/${pkgname}/" \
         -e "s/@PKGVER@/${pkgver}/" \
-        -i "${pkgdir}/usr/src/${_pkgbase}-${pkgver}/dkms.conf"
+        -i "${pkgdir}/usr/src/${pkgname}-${pkgver}/dkms.conf"
 
     # Append module list
-    cat "${srcdir}/modules.list" >> "${pkgdir}/usr/src/${_pkgbase}-${pkgver}/dkms.conf"
+    cat "${srcdir}/modules.list" >> "${pkgdir}/usr/src/${pkgname}-${pkgver}/dkms.conf"
 
     # Copy sources
-    mkdir -p "${pkgdir}/usr/src/${_pkgbase}-${pkgver}/media/"
-    cp -r "${srcdir}/media"/* "${pkgdir}/usr/src/${_pkgbase}-${pkgver}/media/"
+    mkdir -p "${pkgdir}/usr/src/${pkgname}-${pkgver}/media/"
+    cp -r "${srcdir}/media"/* "${pkgdir}/usr/src/${pkgname}-${pkgver}/media/"
 
-    mkdir -p "${pkgdir}/usr/src/${_pkgbase}-${pkgver}/media_build/"
-    cp -r "${srcdir}/media_build"/* "${pkgdir}/usr/src/${_pkgbase}-${pkgver}/media_build/"
+    mkdir -p "${pkgdir}/usr/src/${pkgname}-${pkgver}/media_build/"
+    cp -r "${srcdir}/media_build"/* "${pkgdir}/usr/src/${pkgname}-${pkgver}/media_build/"
 }
